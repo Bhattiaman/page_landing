@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from 'next/image'; // Add this import
 import { 
   faArrowRight, 
   faChartPie,
@@ -53,8 +53,6 @@ const Page = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         <section className="mb-16">
           <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
@@ -86,13 +84,14 @@ const Page = () => {
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-8">
                 {restaurantImages.map((image, index) => (
                   <div key={index} className="relative group overflow-hidden rounded-xl shadow-sm h-36 sm:h-48">
-<Image
-  src={image.url}
-  alt={image.title}
-  width={500} // You can adjust this or use "fill" layout
-  height={300}
-  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-/>                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
+                    <Image 
+                      src={image.url} 
+                      alt={image.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                      width={500}
+                      height={300}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
                       <h3 className="text-white font-bold text-sm sm:text-lg">{image.title}</h3>
                       <p className="text-gray-200 text-xs sm:text-sm">{image.description}</p>
                       <button className="mt-1 sm:mt-2 self-start px-2 py-0.5 sm:px-3 sm:py-1 bg-lime-500 text-white text-xs rounded-full hover:bg-lime-600 transition-colors">
@@ -188,15 +187,13 @@ const Page = () => {
 
               <div className="space-y-3 sm:space-y-4">
                 <div className="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 group hover:bg-gray-900 hover:text-white">
-                <div className="flex items-center mb-2 sm:mb-3">
-  It's a great day!
-</div>
+                  <div className="flex items-center mb-2 sm:mb-3">
                     <FontAwesomeIcon icon={faChartLine} className="text-gray-700 mr-2 text-sm sm:text-base group-hover:text-lime-400 transition-colors" />
                     <h2 className="text-sm sm:text-md font-bold group-hover:text-white">Dashboard Overview</h2>
                   </div>
                   <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <div className="bg-gray-100 p-2 rounded-lg group-hover:bg-gray-800 group-hover:text-white transition-colors">
-                      <div className="text-xs text-gray-500 group-hover:text-gray-300">Today's Revenue</div>
+                      <div className="text-xs text-gray-500 group-hover:text-gray-300">Today&apos;s Revenue</div>
                       <div className="text-base sm:text-lg font-bold">$1,768</div>
                     </div>
                     <div className="bg-gray-100 p-2 rounded-lg group-hover:bg-gray-800 group-hover:text-white transition-colors">
@@ -208,6 +205,8 @@ const Page = () => {
                     src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
                     alt="Dashboard preview" 
                     className="w-full h-auto rounded-lg group-hover:opacity-80 transition-opacity"
+                    width={600}
+                    height={400}
                     loading="lazy"
                   />
                 </div>
@@ -241,10 +240,12 @@ const Page = () => {
                       </div>
                     ))}
                   </div>
-                  <img 
+                  <Image 
                     src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
                     alt="Restaurant orders" 
                     className="w-full h-auto rounded-lg group-hover:opacity-80 transition-opacity"
+                    width={600}
+                    height={400}
                     loading="lazy"
                   />
                 </div>
